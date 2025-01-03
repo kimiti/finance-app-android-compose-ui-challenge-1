@@ -42,11 +42,12 @@ fun HeaderSection() {
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 14.sp
             )
-            Image(
-                painter = painterResource(R.drawable.men),
-                contentDescription = null,
-                modifier = Modifier.size(50.dp)
-            )
+
         }
+        Image(
+            painter = painterResource(R.drawable.men),
+            contentDescription = null,
+            modifier = Modifier.size(50.dp)
+        )
     }
 }
