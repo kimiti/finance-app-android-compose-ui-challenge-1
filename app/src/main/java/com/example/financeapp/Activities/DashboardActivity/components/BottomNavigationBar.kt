@@ -29,5 +29,37 @@ fun BottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier = Modi
             },
             label = { Text("Home") }
         )
+        NavigationBarItem(
+            selected = true,
+            onClick = { onItemSelected(R.id.market) },
+            icon = {
+                Icon(painter = painterResource(R.drawable.market), contentDescription = null)
+            },
+            label = { Text("Market") }
+        )
+        NavigationBarItem(
+            selected = true,
+            onClick = { onItemSelected(R.id.trade) },
+            icon = {
+                Icon(painter = painterResource(R.drawable.trade), contentDescription = null)
+            },
+            label = { Text("Trade") }
+        )
+        NavigationBarItem(
+            selected = true,
+            onClick = { onItemSelected(R.id.futures) },
+            icon = {
+                Icon(painter = painterResource(R.drawable.futures), contentDescription = null)
+            },
+            label = { Text("Futures") }
+        )
+        NavigationBarItem(
+            selected = true,
+            onClick = { onItemSelected(R.id.profile) },
+            icon = {
+                Icon(painter = painterResource(R.drawable.profile), contentDescription = null)
+            },
+            label = { Text("Profile") }
+        )
     }
 }
