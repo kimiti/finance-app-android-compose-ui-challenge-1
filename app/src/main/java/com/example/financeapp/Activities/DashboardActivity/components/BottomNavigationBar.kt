@@ -30,7 +30,7 @@ fun BottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier = Modi
             label = { Text("Home") }
         )
         NavigationBarItem(
-            selected = true,
+            selected = false,
             onClick = { onItemSelected(R.id.market) },
             icon = {
                 Icon(painter = painterResource(R.drawable.market), contentDescription = null)
@@ -38,7 +38,7 @@ fun BottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier = Modi
             label = { Text("Market") }
         )
         NavigationBarItem(
-            selected = true,
+            selected = false,
             onClick = { onItemSelected(R.id.trade) },
             icon = {
                 Icon(painter = painterResource(R.drawable.trade), contentDescription = null)
@@ -46,7 +46,7 @@ fun BottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier = Modi
             label = { Text("Trade") }
         )
         NavigationBarItem(
-            selected = true,
+            selected = false,
             onClick = { onItemSelected(R.id.futures) },
             icon = {
                 Icon(painter = painterResource(R.drawable.futures), contentDescription = null)
@@ -54,7 +54,7 @@ fun BottomNavigationBar(onItemSelected: (Int) -> Unit, modifier: Modifier = Modi
             label = { Text("Futures") }
         )
         NavigationBarItem(
-            selected = true,
+            selected = false,
             onClick = { onItemSelected(R.id.profile) },
             icon = {
                 Icon(painter = painterResource(R.drawable.profile), contentDescription = null)
