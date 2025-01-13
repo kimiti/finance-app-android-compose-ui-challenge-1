@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.example.financeapp.Activities.ReportActivity.components.GradientHeader
 import com.example.financeapp.Domain.BudgetDomain
 
 @Composable
@@ -51,7 +52,18 @@ fun ReportContent(
                     .fillMaxWidth()
                     .height(250.dp)
             ) {
-                val (scrollRef, bottomBarRef) = createRefs()
+                val (header, card) = createRefs()
+                GradientHeader(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(250.dp)
+                        .constrainAs(header) {
+                            top.linkTo(parent.top)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        },
+                    onBack = onBack
+                )
             }
         }
 
