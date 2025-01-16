@@ -76,7 +76,19 @@ fun CenterStatCard(modifier: Modifier = Modifier) {
             modifier = Modifier.constrainAs(incomeIcon) {
                 top.linkTo(anchor = progressBar.bottom, margin = 16.dp)
                 start.linkTo(anchor = parent.start, margin = 32.dp)
-            })
+            }
+        )
+
+        Text(
+            text = "Income",
+            color = colorResource(R.color.darkBlue),
+            fontWeight = FontWeight.Bold,
+            fontSize = 19.sp,
+            modifier = Modifier.constrainAs(incomeLabel){
+                start.linkTo(incomeIcon.end, margin = 16.dp)
+                top.linkTo(incomeIcon.top)
+            }
+        )
     }
 }
 
