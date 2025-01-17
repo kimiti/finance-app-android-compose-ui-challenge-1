@@ -87,8 +87,23 @@ fun CenterStatCard(modifier: Modifier = Modifier) {
             modifier = Modifier.constrainAs(incomeLabel){
                 start.linkTo(incomeIcon.end, margin = 16.dp)
                 top.linkTo(incomeIcon.top)
+                bottom.linkTo(incomeIcon.bottom)
             }
         )
+
+        Text(
+            text = "$3,245.21",
+            color = Color(0xFF2d9738),
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            modifier = Modifier.constrainAs(incomeValue){
+                start.linkTo(incomeLabel.start)
+                top.linkTo(incomeLabel.bottom)
+                end.linkTo(incomeLabel.end)
+            }
+        )
+
+
     }
 }
 
