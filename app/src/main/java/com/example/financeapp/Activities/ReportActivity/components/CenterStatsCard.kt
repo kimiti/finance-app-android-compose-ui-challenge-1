@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -65,7 +66,7 @@ fun CenterStatCard(modifier: Modifier = Modifier) {
             color = colorResource(R.color.darkBlue),
             modifier = Modifier.constrainAs(totalLabel) {
                 start.linkTo(totalTxt.start)
-                top.linkTo(totalTxt.top)
+                top.linkTo(totalTxt.bottom)
                 end.linkTo(totalTxt.end)
             }
         )
@@ -104,6 +105,43 @@ fun CenterStatCard(modifier: Modifier = Modifier) {
         )
 
 
+
+
+        Image(
+            painter = painterResource(R.drawable.expense),
+            contentDescription = null,
+            modifier = Modifier.constrainAs(expenseIcon) {
+                top.linkTo(anchor = expenseLabel.top)
+                end.linkTo(anchor = expenseLabel.start, margin = 8.dp)
+                bottom.linkTo(anchor = expenseLabel.bottom)
+            }
+        )
+
+        Text(
+            text = "Expense",
+            color = colorResource(R.color.darkBlue),
+            fontWeight = FontWeight.Bold,
+            fontSize = 19.sp,
+            modifier = Modifier.constrainAs(expenseLabel){
+                end.linkTo(parent.end, margin = 32.dp)
+                top.linkTo(incomeLabel.top)
+                bottom.linkTo(incomeLabel.bottom)
+            }
+        )
+
+        Text(
+            text = "$1,345.21",
+            color = Color(0xFF2d9738),
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            modifier = Modifier.constrainAs(expenseValue){
+                start.linkTo(expenseLabel.start)
+                top.linkTo(expenseLabel.bottom)
+                end.linkTo(expenseLabel.end)
+            }
+        )
+
+        
     }
 }
 
