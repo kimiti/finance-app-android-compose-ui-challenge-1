@@ -20,7 +20,7 @@ import com.example.financeapp.R
 
 
 @Composable
-fun SummaryColumn(modifier: Modifier = Modifier) {
+fun SummaryColumns(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically
@@ -37,7 +37,7 @@ fun SummaryColumn(modifier: Modifier = Modifier) {
             title = "Income",
             value = "$165.21",
             percent = "-10%",
-            percentColor = Color(0xff2d9738),
+            percentColor = Color(0xffef2642),
             modifier = Modifier.weight(1f)
         )
         VerticalDivider()
@@ -55,7 +55,7 @@ fun SummaryColumn(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun SummaryColumnPreview() {
-    SummaryColumn()
+    SummaryColumns()
 }
 
 @Composable
