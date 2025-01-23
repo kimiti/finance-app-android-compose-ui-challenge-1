@@ -5,14 +5,17 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.financeapp.Domain.BudgetDomain
+import com.example.financeapp.R
 
 @Composable
 fun BudgetItem(budget: BudgetDomain, index: Int) {
@@ -28,6 +31,22 @@ fun BudgetItem(budget: BudgetDomain, index: Int) {
                 shape = RoundedCornerShape(12.dp)
             )
     ) {
+        val (progress, title, price, percent) = createRefs()
+
+        CircularProgressBar(
+            progress = budget.percent.toFloat(),
+            max= 100f,
+            color = if((index%2)==1) colorResource(R.color.blue) else colorResource(R.color.pink),
+            backgroundColor = colorResource(R.color.lightGrey),
+            stroke = 7.dp,
+            modifier = Modifier
+                .size(70.dp)
+                .constrainAs(progress){
+                    top.linkTo(parent.top)
+                    start.linkTo(parent.start, margin = 16.dp)
+                    bottom.linkTo(parent.bottom)
+                }
+        )
 
     }
 }
