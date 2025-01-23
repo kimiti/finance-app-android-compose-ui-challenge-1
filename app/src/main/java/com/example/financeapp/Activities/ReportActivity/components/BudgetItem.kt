@@ -39,13 +39,13 @@ fun BudgetItem(budget: BudgetDomain, index: Int) {
 
         CircularProgressBar(
             progress = budget.percent.toFloat(),
-            max= 100f,
-            color = if((index%2)==1) colorResource(R.color.blue) else colorResource(R.color.pink),
+            max = 100f,
+            color = if ((index % 2) == 1) colorResource(R.color.blue) else colorResource(R.color.pink),
             backgroundColor = colorResource(R.color.lightGrey),
             stroke = 7.dp,
             modifier = Modifier
                 .size(70.dp)
-                .constrainAs(progress){
+                .constrainAs(progress) {
                     top.linkTo(parent.top)
                     start.linkTo(parent.start, margin = 16.dp)
                     bottom.linkTo(parent.bottom)
@@ -57,7 +57,7 @@ fun BudgetItem(budget: BudgetDomain, index: Int) {
             color = Color.Black,
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
-            modifier = Modifier.constrainAs(title){
+            modifier = Modifier.constrainAs(title) {
                 top.linkTo(progress.top, margin = 8.dp)
                 start.linkTo(progress.end, margin = 8.dp)
             }
@@ -66,10 +66,18 @@ fun BudgetItem(budget: BudgetDomain, index: Int) {
         Text(
             "$${DecimalFormat("###,###,###,###").format(budget.price)} /Month",
             color = colorResource(R.color.grey),
-            modifier = Modifier.constrainAs(price){
+            modifier = Modifier.constrainAs(price) {
                 top.linkTo(title.bottom)
                 start.linkTo(title.start)
                 bottom.linkTo(progress.bottom)
+            }
+        )
+
+        Text(
+            "%${budget.percent}",
+            color = if ((index % 2) == 1) colorResource(R.color.blue) else colorResource(R.color.pink),
+            modifier = Modifier.constrainAs(percent){
+                centerTo(progress)
             }
         )
 
@@ -78,7 +86,7 @@ fun BudgetItem(budget: BudgetDomain, index: Int) {
 
 @Preview
 @Composable
-fun BudgetItemPreview(){
+fun BudgetItemPreview() {
     val budget = BudgetDomain(title = "Food", price = 100.0, percent = 50.0)
     BudgetItem(budget = budget, index = 0)
 }
