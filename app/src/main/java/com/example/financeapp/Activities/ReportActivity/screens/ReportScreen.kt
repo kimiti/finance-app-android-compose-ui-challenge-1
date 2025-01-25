@@ -35,7 +35,7 @@ fun ReportScreen(
     onBack: () -> Unit
 ) {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-        val (scrollRef, bottomBarRef) = createRefs()
+        val (scrollRef, bottomNavRef) = createRefs()
 
         ReportContent(
             budgets = budgets,
@@ -44,12 +44,25 @@ fun ReportScreen(
                     top.linkTo(parent.top)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
-//                    bottom.linkTo(parent.top)
+                    bottom.linkTo(bottomNavRef.top)
                 },
             onBack = onBack
         )
 
-        BottomNavigationBar()
+        BottomNavigationBar(
+            modifier = Modifier
+                .height(80.dp)
+                .constrainAs(bottomNavRef){
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                },
+            onItemSelected = {itemId ->
+                if (itemId == R.id.wallet){
+
+                }
+            }
+        )
     }
 }
 
