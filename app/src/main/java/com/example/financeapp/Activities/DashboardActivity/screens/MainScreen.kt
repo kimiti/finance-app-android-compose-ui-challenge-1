@@ -41,7 +41,7 @@ fun MainScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             item { HeaderSection() }
-            item { CardSection() }
+            item { CardSection(onCardClick) }
             item { ActionButtonRow() }
             items(expenses){item ->
                 ExpenseItem(item) }
